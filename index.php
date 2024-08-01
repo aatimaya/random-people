@@ -1,3 +1,36 @@
+<?php
+$json = file_get_contents("./persons.json");
+$data = json_decode($json, true);
+
+// foreach($data as $element){
+//   echo"<hr/>";
+//   echo"<pre>";
+// //  var_dump($element);
+//  var_dump($element ["name"] ["first"]);
+//  echo"<br>";
+//  var_dump($element ["name"] ["last"]);
+//  echo"<br>";
+ 
+
+
+//  echo"</pre>";
+ 
+//  echo"<hr/>";
+// }
+
+// echo "<pre>";
+// var_dump($json);
+// echo "</pre>";
+
+// echo "<pre>";
+// var_dump($data);
+//  echo "</pre>";
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +46,54 @@
   </script>
 </head>
 
-<body class="bg-dark">
+<body class="bg-success-subtle">
   <div class="container">
     <div class="mt-4 mb-5 d-flex justify-content-between align-items-center">
 
       <h1 class="text-white">Random People Here! </h1>
 
+
+    </div>
+    <div>
+    <table class="table table-sucess table-stripped">
+  <thead>
+    <tr>
+      <th ">Profile</th>
+      <th >Name</th>
+      <th >Email</th>
+      <th>Gender</th>
+      <!-- <th scope="col">Handle</th> -->
+    </tr>
+  </thead>
+  
+ 
+    <!-- <tr>
+      <td>sthg</td>
+      <td>Mark</td>
+      <td>Otto@gmail.com</td>
+       <td>@mdo</td> -->
+    <!-- </tr>
+    <tr>
+      <td>sthg</td>
+      <td>Jacob</td>
+      <td>Thornton@gmail.com</td>
+      <td>@fat</td> -->
+
+    <!-- </tr> --> 
+    <tbody>
+     <?php foreach($data as $element): ?>
+    <tr>
+      <td>
+        <img src="<?php echo $element ["picture"]["medium"]?>"></td>
+
+      <td ><?php echo $element["name"]["first"]?></td>
+      <td ><?php echo $element ["email"]?></td>
+      <td ><?php echo $element ["gender"]?></td>
+     
+    </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
     </div>
 
 
